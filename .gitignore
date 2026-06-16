@@ -1,0 +1,4 @@
+.vs/
+EcoDrive/EcoDriveDB.mdf
+EcoDrive/EcoDriveDB_log.ldf
+*.csproj.user
