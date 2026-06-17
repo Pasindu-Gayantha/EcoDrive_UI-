@@ -24,3 +24,17 @@ C:\EcoDrive_UI\EcoDrive\EcoDrive\obj\Debug\EcoDrive.csproj.GenerateResource.cach
 C:\EcoDrive_UI\EcoDrive\EcoDrive\obj\Debug\EcoDrive.csproj.CoreCompileInputs.cache
 C:\EcoDrive_UI\EcoDrive\EcoDrive\obj\Debug\EcoDrive.exe
 C:\EcoDrive_UI\EcoDrive\EcoDrive\obj\Debug\EcoDrive.pdb
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\bin\Debug\EcoDriveDB.mdf
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\bin\Debug\EcoDriveDB_log.ldf
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\bin\Debug\EcoDrive.exe.config
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\bin\Debug\EcoDrive.exe
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\bin\Debug\EcoDrive.pdb
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.csproj.AssemblyReference.cache
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.exe.config
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.AdminDashboardForm.resources
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.Form1.resources
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.Properties.Resources.resources
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.csproj.GenerateResource.cache
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.csproj.CoreCompileInputs.cache
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.exe
+F:\Projects\VAP Group project\project files\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.pdb
