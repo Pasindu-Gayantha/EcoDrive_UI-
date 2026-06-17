@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnPayments = new System.Windows.Forms.Button();
@@ -38,11 +43,21 @@
             this.pnlMainContent = new System.Windows.Forms.Panel();
             this.tabControlPages = new System.Windows.Forms.TabControl();
             this.tabDashboard = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.barChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.slotsOcc = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.totalBookings = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabRegistration = new System.Windows.Forms.TabPage();
-            this.btnSubmitAndNext = new System.Windows.Forms.Button();
-            this.tabBooking = new System.Windows.Forms.TabPage();
-            this.btnBookSlot = new System.Windows.Forms.Button();
-            this.tabAdmin = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbFuelType = new System.Windows.Forms.ComboBox();
@@ -61,6 +76,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.btnSubmitAndNext = new System.Windows.Forms.Button();
+            this.tabBooking = new System.Windows.Forms.TabPage();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -81,57 +98,63 @@
             this.label33 = new System.Windows.Forms.Label();
             this.dtpBookingDate = new System.Windows.Forms.DateTimePicker();
             this.label36 = new System.Windows.Forms.Label();
-            this.btnPayAndPrint = new System.Windows.Forms.Button();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label65 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBookSlot = new System.Windows.Forms.Button();
             this.tabPayments = new System.Windows.Forms.TabPage();
             this.label66 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.btnPayAndPrint = new System.Windows.Forms.Button();
+            this.tabAdmin = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdminLogin = new System.Windows.Forms.Button();
             this.txtAdminPassword = new System.Windows.Forms.TextBox();
             this.txtAdminUsername = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panelSidebar.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
             this.tabControlPages.SuspendLayout();
             this.tabDashboard.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pieChart)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabRegistration.SuspendLayout();
             this.tabBooking.SuspendLayout();
-            this.tabAdmin.SuspendLayout();
             this.tabPayments.SuspendLayout();
+            this.tabAdmin.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,6 +277,10 @@
             // 
             this.tabDashboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDashboard.BackgroundImage")));
             this.tabDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabDashboard.Controls.Add(this.panel5);
+            this.tabDashboard.Controls.Add(this.panel4);
+            this.tabDashboard.Controls.Add(this.panel3);
+            this.tabDashboard.Controls.Add(this.panel2);
             this.tabDashboard.Controls.Add(this.label16);
             this.tabDashboard.Controls.Add(this.label17);
             this.tabDashboard.Location = new System.Drawing.Point(4, 31);
@@ -264,6 +291,165 @@
             this.tabDashboard.TabIndex = 0;
             this.tabDashboard.Text = "Dashboard";
             this.tabDashboard.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.pieChart);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Location = new System.Drawing.Point(423, 225);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.panel5.Size = new System.Drawing.Size(341, 317);
+            this.panel5.TabIndex = 59;
+            // 
+            // pieChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.pieChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.pieChart.Legends.Add(legend1);
+            this.pieChart.Location = new System.Drawing.Point(8, 54);
+            this.pieChart.Name = "pieChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.pieChart.Series.Add(series1);
+            this.pieChart.Size = new System.Drawing.Size(329, 255);
+            this.pieChart.TabIndex = 58;
+            this.pieChart.Text = "chart1";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 5);
+            this.label20.Name = "label20";
+            this.label20.Padding = new System.Windows.Forms.Padding(3);
+            this.label20.Size = new System.Drawing.Size(150, 28);
+            this.label20.TabIndex = 59;
+            this.label20.Text = "Slot Status (Today)";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.barChart);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Location = new System.Drawing.Point(32, 225);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(341, 317);
+            this.panel4.TabIndex = 59;
+            // 
+            // barChart
+            // 
+            chartArea2.AxisY.Interval = 10D;
+            chartArea2.AxisY.Maximum = 50D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.Name = "ChartArea1";
+            this.barChart.ChartAreas.Add(chartArea2);
+            this.barChart.Location = new System.Drawing.Point(8, 54);
+            this.barChart.Name = "barChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.barChart.Series.Add(series2);
+            this.barChart.Size = new System.Drawing.Size(325, 255);
+            this.barChart.TabIndex = 58;
+            this.barChart.Text = "chart1";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(19, 5);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(3);
+            this.label19.Size = new System.Drawing.Size(199, 28);
+            this.label19.TabIndex = 59;
+            this.label19.Text = "Booking Overview (Today)";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.slotsOcc);
+            this.panel3.Controls.Add(this.label21);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panel3.Location = new System.Drawing.Point(468, 89);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(234, 117);
+            this.panel3.TabIndex = 57;
+            // 
+            // slotsOcc
+            // 
+            this.slotsOcc.AutoSize = true;
+            this.slotsOcc.Font = new System.Drawing.Font("Arial Narrow", 30F, System.Drawing.FontStyle.Bold);
+            this.slotsOcc.Location = new System.Drawing.Point(79, 41);
+            this.slotsOcc.Name = "slotsOcc";
+            this.slotsOcc.Size = new System.Drawing.Size(82, 58);
+            this.slotsOcc.TabIndex = 1;
+            this.slotsOcc.Text = "1/4";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(51, 13);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(131, 21);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Slots Occupied";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.totalBookings);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panel2.Location = new System.Drawing.Point(97, 89);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(234, 117);
+            this.panel2.TabIndex = 57;
+            // 
+            // totalBookings
+            // 
+            this.totalBookings.AutoSize = true;
+            this.totalBookings.Font = new System.Drawing.Font("Arial Narrow", 30F, System.Drawing.FontStyle.Bold);
+            this.totalBookings.Location = new System.Drawing.Point(83, 41);
+            this.totalBookings.Name = "totalBookings";
+            this.totalBookings.Size = new System.Drawing.Size(48, 58);
+            this.totalBookings.TabIndex = 1;
+            this.totalBookings.Text = "0";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(16, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(194, 21);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Today\'s Total Bookings";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Green;
+            this.label16.Location = new System.Drawing.Point(9, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(386, 22);
+            this.label16.TabIndex = 56;
+            this.label16.Text = "Welcome! Check today\'s booking status and slot availability,";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Green;
+            this.label17.Location = new System.Drawing.Point(7, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(136, 33);
+            this.label17.TabIndex = 55;
+            this.label17.Text = "Dashboard";
             // 
             // tabRegistration
             // 
@@ -297,82 +483,6 @@
             this.tabRegistration.TabIndex = 1;
             this.tabRegistration.Text = "Vehicle Registration";
             this.tabRegistration.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmitAndNext
-            // 
-            this.btnSubmitAndNext.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnSubmitAndNext.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSubmitAndNext.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitAndNext.Location = new System.Drawing.Point(4, 519);
-            this.btnSubmitAndNext.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSubmitAndNext.Name = "btnSubmitAndNext";
-            this.btnSubmitAndNext.Size = new System.Drawing.Size(835, 49);
-            this.btnSubmitAndNext.TabIndex = 16;
-            this.btnSubmitAndNext.Text = "Submit and Next";
-            this.btnSubmitAndNext.UseVisualStyleBackColor = false;
-            this.btnSubmitAndNext.Click += new System.EventHandler(this.btnSubmitAndNext_Click);
-            // 
-            // tabBooking
-            // 
-            this.tabBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabBooking.BackgroundImage")));
-            this.tabBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabBooking.Controls.Add(this.label39);
-            this.tabBooking.Controls.Add(this.label38);
-            this.tabBooking.Controls.Add(this.label10);
-            this.tabBooking.Controls.Add(this.label11);
-            this.tabBooking.Controls.Add(this.label12);
-            this.tabBooking.Controls.Add(this.label26);
-            this.tabBooking.Controls.Add(this.label27);
-            this.tabBooking.Controls.Add(this.lblBookSummaryType);
-            this.tabBooking.Controls.Add(this.lblBookSummaryVehicle);
-            this.tabBooking.Controls.Add(this.lblBookSummaryName);
-            this.tabBooking.Controls.Add(this.lblBookSummaryNIC);
-            this.tabBooking.Controls.Add(this.rdoSlot5);
-            this.tabBooking.Controls.Add(this.rdoSlot4);
-            this.tabBooking.Controls.Add(this.rdoSlot3);
-            this.tabBooking.Controls.Add(this.rdoSlot2);
-            this.tabBooking.Controls.Add(this.rdoSlot1);
-            this.tabBooking.Controls.Add(this.cmbTimeSlots);
-            this.tabBooking.Controls.Add(this.label33);
-            this.tabBooking.Controls.Add(this.dtpBookingDate);
-            this.tabBooking.Controls.Add(this.label36);
-            this.tabBooking.Controls.Add(this.btnBookSlot);
-            this.tabBooking.Location = new System.Drawing.Point(4, 31);
-            this.tabBooking.Margin = new System.Windows.Forms.Padding(4);
-            this.tabBooking.Name = "tabBooking";
-            this.tabBooking.Padding = new System.Windows.Forms.Padding(4);
-            this.tabBooking.Size = new System.Drawing.Size(843, 572);
-            this.tabBooking.TabIndex = 2;
-            this.tabBooking.Text = "Slot Booking";
-            this.tabBooking.UseVisualStyleBackColor = true;
-            // 
-            // btnBookSlot
-            // 
-            this.btnBookSlot.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnBookSlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnBookSlot.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookSlot.Location = new System.Drawing.Point(4, 522);
-            this.btnBookSlot.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBookSlot.Name = "btnBookSlot";
-            this.btnBookSlot.Size = new System.Drawing.Size(835, 46);
-            this.btnBookSlot.TabIndex = 5;
-            this.btnBookSlot.Text = "Book Selected Slot";
-            this.btnBookSlot.UseVisualStyleBackColor = false;
-            this.btnBookSlot.Click += new System.EventHandler(this.btnBookSlot_Click);
-            // 
-            // tabAdmin
-            // 
-            this.tabAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabAdmin.BackgroundImage")));
-            this.tabAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabAdmin.Controls.Add(this.panel1);
-            this.tabAdmin.Location = new System.Drawing.Point(4, 31);
-            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Padding = new System.Windows.Forms.Padding(4);
-            this.tabAdmin.Size = new System.Drawing.Size(843, 572);
-            this.tabAdmin.TabIndex = 4;
-            this.tabAdmin.Text = "System Administration";
-            this.tabAdmin.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -557,6 +667,54 @@
             this.label25.Size = new System.Drawing.Size(200, 24);
             this.label25.TabIndex = 37;
             this.label25.Text = "01.Customer Information";
+            // 
+            // btnSubmitAndNext
+            // 
+            this.btnSubmitAndNext.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnSubmitAndNext.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSubmitAndNext.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitAndNext.Location = new System.Drawing.Point(4, 519);
+            this.btnSubmitAndNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubmitAndNext.Name = "btnSubmitAndNext";
+            this.btnSubmitAndNext.Size = new System.Drawing.Size(835, 49);
+            this.btnSubmitAndNext.TabIndex = 16;
+            this.btnSubmitAndNext.Text = "Submit and Next";
+            this.btnSubmitAndNext.UseVisualStyleBackColor = false;
+            this.btnSubmitAndNext.Click += new System.EventHandler(this.btnSubmitAndNext_Click);
+            // 
+            // tabBooking
+            // 
+            this.tabBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabBooking.BackgroundImage")));
+            this.tabBooking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabBooking.Controls.Add(this.label39);
+            this.tabBooking.Controls.Add(this.label38);
+            this.tabBooking.Controls.Add(this.label10);
+            this.tabBooking.Controls.Add(this.label11);
+            this.tabBooking.Controls.Add(this.label12);
+            this.tabBooking.Controls.Add(this.label26);
+            this.tabBooking.Controls.Add(this.label27);
+            this.tabBooking.Controls.Add(this.lblBookSummaryType);
+            this.tabBooking.Controls.Add(this.lblBookSummaryVehicle);
+            this.tabBooking.Controls.Add(this.lblBookSummaryName);
+            this.tabBooking.Controls.Add(this.lblBookSummaryNIC);
+            this.tabBooking.Controls.Add(this.rdoSlot5);
+            this.tabBooking.Controls.Add(this.rdoSlot4);
+            this.tabBooking.Controls.Add(this.rdoSlot3);
+            this.tabBooking.Controls.Add(this.rdoSlot2);
+            this.tabBooking.Controls.Add(this.rdoSlot1);
+            this.tabBooking.Controls.Add(this.cmbTimeSlots);
+            this.tabBooking.Controls.Add(this.label33);
+            this.tabBooking.Controls.Add(this.dtpBookingDate);
+            this.tabBooking.Controls.Add(this.label36);
+            this.tabBooking.Controls.Add(this.btnBookSlot);
+            this.tabBooking.Location = new System.Drawing.Point(4, 31);
+            this.tabBooking.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBooking.Name = "tabBooking";
+            this.tabBooking.Padding = new System.Windows.Forms.Padding(4);
+            this.tabBooking.Size = new System.Drawing.Size(843, 572);
+            this.tabBooking.TabIndex = 2;
+            this.tabBooking.Text = "Slot Booking";
+            this.tabBooking.UseVisualStyleBackColor = true;
             // 
             // label39
             // 
@@ -831,334 +989,19 @@
             this.label36.TabIndex = 47;
             this.label36.Text = "01.Select Date";
             // 
-            // btnPayAndPrint
+            // btnBookSlot
             // 
-            this.btnPayAndPrint.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnPayAndPrint.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPayAndPrint.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayAndPrint.Location = new System.Drawing.Point(4, 520);
-            this.btnPayAndPrint.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPayAndPrint.Name = "btnPayAndPrint";
-            this.btnPayAndPrint.Size = new System.Drawing.Size(835, 48);
-            this.btnPayAndPrint.TabIndex = 10;
-            this.btnPayAndPrint.Text = "Pay And Generate Receipt";
-            this.btnPayAndPrint.UseVisualStyleBackColor = false;
-            this.btnPayAndPrint.Click += new System.EventHandler(this.btnPayAndPrint_Click);
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.Green;
-            this.label40.Location = new System.Drawing.Point(7, 14);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(220, 33);
-            this.label40.TabIndex = 106;
-            this.label40.Text = "Payments & Receipt";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Green;
-            this.label13.Location = new System.Drawing.Point(9, 47);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(267, 20);
-            this.label13.TabIndex = 107;
-            this.label13.Text = "Complete the payment to confirm your booking.";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(9, 76);
-            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(155, 24);
-            this.label41.TabIndex = 108;
-            this.label41.Text = "Payment Summary";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(339, 76);
-            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(345, 24);
-            this.label42.TabIndex = 109;
-            this.label42.Text = "Payment Gateway (Select payment method)";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(9, 113);
-            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(103, 22);
-            this.label48.TabIndex = 110;
-            this.label48.Text = "Customer NIC:";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(159, 113);
-            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(33, 22);
-            this.label47.TabIndex = 111;
-            this.label47.Text = "- - -";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(9, 143);
-            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(134, 22);
-            this.label46.TabIndex = 112;
-            this.label46.Text = "Allocated Slot/Lane:";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(159, 143);
-            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(33, 22);
-            this.label45.TabIndex = 113;
-            this.label45.Text = "- - -";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(7, 177);
-            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(115, 22);
-            this.label44.TabIndex = 114;
-            this.label44.Text = "Total Fee (LKR):";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(159, 177);
-            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(63, 22);
-            this.label43.TabIndex = 115;
-            this.label43.Text = "Rs. 0.00";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(7, 239);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(115, 22);
-            this.label62.TabIndex = 116;
-            this.label62.Text = "Customer Name";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(9, 268);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(78, 22);
-            this.label61.TabIndex = 117;
-            this.label61.Text = "Vehicle No";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(9, 301);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(92, 22);
-            this.label60.TabIndex = 118;
-            this.label60.Text = "Vehicle Type";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(9, 332);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(94, 22);
-            this.label59.TabIndex = 119;
-            this.label59.Text = "Booking Date";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(9, 362);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(70, 22);
-            this.label58.TabIndex = 120;
-            this.label58.Text = "Time Slot";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(9, 389);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(102, 22);
-            this.label57.TabIndex = 121;
-            this.label57.Text = "Base Test Fee";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(7, 418);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(86, 22);
-            this.label56.TabIndex = 122;
-            this.label56.Text = "System Fee";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(159, 239);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(15, 22);
-            this.label55.TabIndex = 123;
-            this.label55.Text = "-";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(159, 268);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(15, 22);
-            this.label54.TabIndex = 124;
-            this.label54.Text = "-";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(159, 301);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(15, 22);
-            this.label53.TabIndex = 125;
-            this.label53.Text = "-";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(159, 332);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(15, 22);
-            this.label52.TabIndex = 126;
-            this.label52.Text = "-";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(159, 362);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(15, 22);
-            this.label51.TabIndex = 127;
-            this.label51.Text = "-";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(159, 389);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(63, 22);
-            this.label50.TabIndex = 128;
-            this.label50.Text = "Rs. 0.00";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(159, 418);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(63, 22);
-            this.label49.TabIndex = 129;
-            this.label49.Text = "Rs. 0.00";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(9, 206);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(325, 22);
-            this.label63.TabIndex = 130;
-            this.label63.Text = "---------------------------------------------------------------";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(339, 113);
-            this.label64.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(122, 22);
-            this.label64.TabIndex = 131;
-            this.label64.Text = "Payment Method:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Cash",
-            "Card"});
-            this.comboBox1.Location = new System.Drawing.Point(515, 110);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 30);
-            this.comboBox1.TabIndex = 132;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label65.Location = new System.Drawing.Point(340, 142);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(481, 36);
-            this.label65.TabIndex = 133;
-            this.label65.Text = "After select payment method click \"Pay And Generate Recipt\" button and\r\nthen You " +
-    "can view and download your recipt ";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(341, 182);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(480, 287);
-            this.richTextBox1.TabIndex = 134;
-            this.richTextBox1.Text = "";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(675, 483);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 32);
-            this.button1.TabIndex = 135;
-            this.button1.Text = "Save your receipt";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnBookSlot.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnBookSlot.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnBookSlot.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookSlot.Location = new System.Drawing.Point(4, 522);
+            this.btnBookSlot.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBookSlot.Name = "btnBookSlot";
+            this.btnBookSlot.Size = new System.Drawing.Size(835, 46);
+            this.btnBookSlot.TabIndex = 5;
+            this.btnBookSlot.Text = "Book Selected Slot";
+            this.btnBookSlot.UseVisualStyleBackColor = false;
+            this.btnBookSlot.Click += new System.EventHandler(this.btnBookSlot_Click);
             // 
             // tabPayments
             // 
@@ -1217,26 +1060,348 @@
             this.label66.Text = "⚠️ Please download your official receipt before leaving this page as proof for th" +
     "e testing counter";
             // 
-            // label14
+            // button1
             // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(27, 48);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(257, 22);
-            this.label14.TabIndex = 56;
-            this.label14.Text = "Please login to access admin panel.";
+            this.button1.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(675, 483);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 32);
+            this.button1.TabIndex = 135;
+            this.button1.Text = "Save your receipt";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // label15
+            // richTextBox1
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(25, 15);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(265, 33);
-            this.label15.TabIndex = 55;
-            this.label15.Text = "System Administration";
+            this.richTextBox1.Location = new System.Drawing.Point(341, 182);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(480, 287);
+            this.richTextBox1.TabIndex = 134;
+            this.richTextBox1.Text = "";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label65.Location = new System.Drawing.Point(340, 142);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(481, 36);
+            this.label65.TabIndex = 133;
+            this.label65.Text = "After select payment method click \"Pay And Generate Recipt\" button and\r\nthen You " +
+    "can view and download your recipt ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cash",
+            "Card"});
+            this.comboBox1.Location = new System.Drawing.Point(515, 110);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(160, 30);
+            this.comboBox1.TabIndex = 132;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.Location = new System.Drawing.Point(339, 113);
+            this.label64.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(122, 22);
+            this.label64.TabIndex = 131;
+            this.label64.Text = "Payment Method:";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.Location = new System.Drawing.Point(9, 206);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(325, 22);
+            this.label63.TabIndex = 130;
+            this.label63.Text = "---------------------------------------------------------------";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(159, 418);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(63, 22);
+            this.label49.TabIndex = 129;
+            this.label49.Text = "Rs. 0.00";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(159, 389);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(63, 22);
+            this.label50.TabIndex = 128;
+            this.label50.Text = "Rs. 0.00";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(159, 362);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(15, 22);
+            this.label51.TabIndex = 127;
+            this.label51.Text = "-";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(159, 332);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(15, 22);
+            this.label52.TabIndex = 126;
+            this.label52.Text = "-";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(159, 301);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(15, 22);
+            this.label53.TabIndex = 125;
+            this.label53.Text = "-";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(159, 268);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(15, 22);
+            this.label54.TabIndex = 124;
+            this.label54.Text = "-";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(159, 239);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(15, 22);
+            this.label55.TabIndex = 123;
+            this.label55.Text = "-";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(7, 418);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(86, 22);
+            this.label56.TabIndex = 122;
+            this.label56.Text = "System Fee";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(9, 389);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(102, 22);
+            this.label57.TabIndex = 121;
+            this.label57.Text = "Base Test Fee";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(9, 362);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(70, 22);
+            this.label58.TabIndex = 120;
+            this.label58.Text = "Time Slot";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(9, 332);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(94, 22);
+            this.label59.TabIndex = 119;
+            this.label59.Text = "Booking Date";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(9, 301);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(92, 22);
+            this.label60.TabIndex = 118;
+            this.label60.Text = "Vehicle Type";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(9, 268);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(78, 22);
+            this.label61.TabIndex = 117;
+            this.label61.Text = "Vehicle No";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(7, 239);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(115, 22);
+            this.label62.TabIndex = 116;
+            this.label62.Text = "Customer Name";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(159, 177);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(63, 22);
+            this.label43.TabIndex = 115;
+            this.label43.Text = "Rs. 0.00";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(7, 177);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(115, 22);
+            this.label44.TabIndex = 114;
+            this.label44.Text = "Total Fee (LKR):";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(159, 143);
+            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(33, 22);
+            this.label45.TabIndex = 113;
+            this.label45.Text = "- - -";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(9, 143);
+            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(134, 22);
+            this.label46.TabIndex = 112;
+            this.label46.Text = "Allocated Slot/Lane:";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(159, 113);
+            this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(33, 22);
+            this.label47.TabIndex = 111;
+            this.label47.Text = "- - -";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(9, 113);
+            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(103, 22);
+            this.label48.TabIndex = 110;
+            this.label48.Text = "Customer NIC:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(339, 76);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(345, 24);
+            this.label42.TabIndex = 109;
+            this.label42.Text = "Payment Gateway (Select payment method)";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(9, 76);
+            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(155, 24);
+            this.label41.TabIndex = 108;
+            this.label41.Text = "Payment Summary";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Green;
+            this.label13.Location = new System.Drawing.Point(9, 47);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(267, 20);
+            this.label13.TabIndex = 107;
+            this.label13.Text = "Complete the payment to confirm your booking.";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Green;
+            this.label40.Location = new System.Drawing.Point(7, 14);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(220, 33);
+            this.label40.TabIndex = 106;
+            this.label40.Text = "Payments & Receipt";
+            // 
+            // btnPayAndPrint
+            // 
+            this.btnPayAndPrint.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnPayAndPrint.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPayAndPrint.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayAndPrint.Location = new System.Drawing.Point(4, 520);
+            this.btnPayAndPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPayAndPrint.Name = "btnPayAndPrint";
+            this.btnPayAndPrint.Size = new System.Drawing.Size(835, 48);
+            this.btnPayAndPrint.TabIndex = 10;
+            this.btnPayAndPrint.Text = "Pay And Generate Receipt";
+            this.btnPayAndPrint.UseVisualStyleBackColor = false;
+            this.btnPayAndPrint.Click += new System.EventHandler(this.btnPayAndPrint_Click);
+            // 
+            // tabAdmin
+            // 
+            this.tabAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabAdmin.BackgroundImage")));
+            this.tabAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabAdmin.Controls.Add(this.panel1);
+            this.tabAdmin.Location = new System.Drawing.Point(4, 31);
+            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.Padding = new System.Windows.Forms.Padding(4);
+            this.tabAdmin.Size = new System.Drawing.Size(843, 572);
+            this.tabAdmin.TabIndex = 4;
+            this.tabAdmin.Text = "System Administration";
+            this.tabAdmin.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -1309,27 +1474,26 @@
             this.label22.TabIndex = 57;
             this.label22.Text = "Username :";
             // 
-            // label16
+            // label14
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Green;
-            this.label16.Location = new System.Drawing.Point(9, 50);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(386, 22);
-            this.label16.TabIndex = 56;
-            this.label16.Text = "Welcome! Check today\'s booking status and slot availability,";
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(27, 48);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(257, 22);
+            this.label14.TabIndex = 56;
+            this.label14.Text = "Please login to access admin panel.";
             // 
-            // label17
+            // label15
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Green;
-            this.label17.Location = new System.Drawing.Point(7, 17);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(136, 33);
-            this.label17.TabIndex = 55;
-            this.label17.Text = "Dashboard";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(25, 15);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(265, 33);
+            this.label15.TabIndex = 55;
+            this.label15.Text = "System Administration";
             // 
             // Form1
             // 
@@ -1347,13 +1511,23 @@
             this.tabControlPages.ResumeLayout(false);
             this.tabDashboard.ResumeLayout(false);
             this.tabDashboard.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pieChart)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barChart)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tabRegistration.ResumeLayout(false);
             this.tabRegistration.PerformLayout();
             this.tabBooking.ResumeLayout(false);
             this.tabBooking.PerformLayout();
-            this.tabAdmin.ResumeLayout(false);
             this.tabPayments.ResumeLayout(false);
             this.tabPayments.PerformLayout();
+            this.tabAdmin.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -1457,6 +1631,18 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label totalBookings;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label slotsOcc;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataVisualization.Charting.Chart barChart;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pieChart;
+        private System.Windows.Forms.Label label19;
     }
 }
 
