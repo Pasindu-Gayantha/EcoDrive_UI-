@@ -105,7 +105,63 @@ namespace EcoDrive
 
         private void btnBookSlot_Click(object sender, EventArgs e)
         {
-           
+            if (cmbTimeSlots.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a time slot!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string selectedDate = dtpBookingDate.Value.ToString("yyyy-MM-dd");
+            string selectedTime = cmbTimeSlots.SelectedItem.ToString();
+            int allocatedSlot = -1;
+
+            if (rdoSlot2.Checked) allocatedSlot = 2;
+            else if (rdoSlot3.Checked) allocatedSlot = 3;
+            else if (rdoSlot4.Checked) allocatedSlot = 4;
+            else if (rdoSlot5.Checked) allocatedSlot = 5;
+
+            if (allocatedSlot == -1)
+            {
+                MessageBox.Show("Please select an available Slot/Lane to book!", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string insertQuery = "INSERT INTO Bookings (NIC, BookingDate, TimeSlot, SlotNumber, Status) " +
+                                         "VALUES (@NIC, @Date, @Time, @Slot, @Status)";
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@NIC", currentNIC);
+                        insertCommand.Parameters.AddWithValue("@Date", selectedDate);
+                        insertCommand.Parameters.AddWithValue("@Time", selectedTime);
+                        insertCommand.Parameters.AddWithValue("@Slot", allocatedSlot);
+                        insertCommand.Parameters.AddWithValue("@Status", "Pending"); // Matches Step 3 workflow state
+
+                        insertCommand.ExecuteNonQuery();
+
+                        string idQuery = "SELECT TOP 1 BookingId FROM Bookings ORDER BY BookingId DESC";
+                        using (SqlCommand idCommand = new SqlCommand(idQuery, connection))
+                        {
+                            currentBookingId = Convert.ToInt32(idCommand.ExecuteScalar());
+                        }
+                    }
+
+                    MessageBox.Show($"Slot {allocatedSlot} Booked Successfully! Status marked as Pending.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    tabControlPages.Selecting -= tabControlPages_Selecting;
+                    tabControlPages.SelectedTab = tabPayments;
+                    tabControlPages.Selecting += tabControlPages_Selecting;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error during booking: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void cmbTimeSlots_SelectedIndexChanged(object sender, EventArgs e)
@@ -389,6 +445,11 @@ namespace EcoDrive
         private void btnDownloadReceipt_Click_1(object sender, EventArgs e)
         {
            
+        }
+
+        private void cmbTimeSlots_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

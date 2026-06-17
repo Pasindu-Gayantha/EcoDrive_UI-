@@ -955,6 +955,7 @@
             this.cmbTimeSlots.Name = "cmbTimeSlots";
             this.cmbTimeSlots.Size = new System.Drawing.Size(160, 30);
             this.cmbTimeSlots.TabIndex = 50;
+            this.cmbTimeSlots.SelectedIndexChanged += new System.EventHandler(this.cmbTimeSlots_SelectedIndexChanged_1);
             // 
             // label33
             // 
