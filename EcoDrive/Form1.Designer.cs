@@ -134,6 +134,7 @@
             this.btnPayAndPrint = new System.Windows.Forms.Button();
             this.tabAdmin = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.btnAdminLogin = new System.Windows.Forms.Button();
             this.txtAdminPassword = new System.Windows.Forms.TextBox();
             this.txtAdminUsername = new System.Windows.Forms.TextBox();
@@ -1409,6 +1410,7 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.checkBoxShowPassword);
             this.panel1.Controls.Add(this.btnAdminLogin);
             this.panel1.Controls.Add(this.txtAdminPassword);
             this.panel1.Controls.Add(this.txtAdminUsername);
@@ -1434,23 +1436,44 @@
             this.btnAdminLogin.TabIndex = 61;
             this.btnAdminLogin.Text = "Login to Admin Panel";
             this.btnAdminLogin.UseVisualStyleBackColor = false;
+            this.btnAdminLogin.Click += new System.EventHandler(this.btnAdminLogin_Click);
+            // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.ForeColor = System.Drawing.Color.Red;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(147, 216);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(158, 27);
+            this.checkBoxShowPassword.TabIndex = 62;
+            this.checkBoxShowPassword.Text = "Show Password";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
             // 
             // txtAdminPassword
             // 
+            this.txtAdminPassword.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtAdminPassword.Location = new System.Drawing.Point(147, 180);
             this.txtAdminPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdminPassword.Name = "txtAdminPassword";
             this.txtAdminPassword.Size = new System.Drawing.Size(196, 28);
             this.txtAdminPassword.TabIndex = 60;
-            this.txtAdminPassword.UseSystemPasswordChar = true;
+            this.txtAdminPassword.Text = "Enter Password...";
+            this.txtAdminPassword.UseSystemPasswordChar = false;
+            this.txtAdminPassword.Enter += new System.EventHandler(this.txtAdminPassword_Enter);
+            this.txtAdminPassword.Leave += new System.EventHandler(this.txtAdminPassword_Leave);
             // 
             // txtAdminUsername
             // 
+            this.txtAdminUsername.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtAdminUsername.Location = new System.Drawing.Point(147, 110);
             this.txtAdminUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdminUsername.Name = "txtAdminUsername";
             this.txtAdminUsername.Size = new System.Drawing.Size(196, 28);
             this.txtAdminUsername.TabIndex = 59;
+            this.txtAdminUsername.Text = "Enter Username...";
+            this.txtAdminUsername.Enter += new System.EventHandler(this.txtAdminUsername_Enter);
+            this.txtAdminUsername.Leave += new System.EventHandler(this.txtAdminUsername_Leave);
             // 
             // label23
             // 
@@ -1626,6 +1649,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox checkBoxShowPassword;
         private System.Windows.Forms.Button btnAdminLogin;
         private System.Windows.Forms.TextBox txtAdminPassword;
         private System.Windows.Forms.TextBox txtAdminUsername;
@@ -1647,4 +1671,3 @@
         private System.Windows.Forms.Label label19;
     }
 }
-

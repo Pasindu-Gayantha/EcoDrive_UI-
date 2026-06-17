@@ -236,7 +236,28 @@ namespace EcoDrive
 
         private void btnAdminLogin_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtAdminUsername.Text) ||
+                string.IsNullOrWhiteSpace(txtAdminPassword.Text) ||
+                txtAdminUsername.Text == "Enter Username..." ||
+                txtAdminPassword.Text == "Enter Password...")
+            {
+                MessageBox.Show("Please enter both Username and Password!", "Required Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (txtAdminUsername.Text == "admin" && txtAdminPassword.Text == "admin123")
+            {
+                MessageBox.Show("Login Successful! Welcome to Admin Panel.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AdminDashboardForm dashboard = new AdminDashboardForm();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username or Password! Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAdminPassword.Clear();
+                txtAdminPassword.Focus();
+            }
         }
 
         private void tabControlPages_Selecting(object sender, TabControlCancelEventArgs e)
@@ -486,6 +507,12 @@ namespace EcoDrive
         {
             dtpBookingDate.Value = DateTime.Today;
             UpdateDashboardChart();
+            txtAdminUsername.Text = "Enter Username...";
+            txtAdminUsername.ForeColor = Color.Gray;
+            txtAdminPassword.Text = "Enter Password...";
+            txtAdminPassword.ForeColor = Color.Gray;
+            txtAdminPassword.UseSystemPasswordChar = false;
+            checkBoxShowPassword.Checked = false;
         }
 
         private void dtpBookingDate_ValueChanged(object sender, EventArgs e)
@@ -529,6 +556,49 @@ namespace EcoDrive
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving receipt file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAdminPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked && txtAdminPassword.Text != "Enter Password...";
+        }
+
+        private void txtAdminUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtAdminUsername.Text == "Enter Username...")
+            {
+                txtAdminUsername.Text = "";
+                txtAdminUsername.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtAdminUsername_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAdminUsername.Text))
+            {
+                txtAdminUsername.Text = "Enter Username...";
+                txtAdminUsername.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtAdminPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtAdminPassword.Text == "Enter Password...")
+            {
+                txtAdminPassword.Text = "";
+                txtAdminPassword.ForeColor = Color.Black;
+                txtAdminPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
+            }
+        }
+
+        private void txtAdminPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAdminPassword.Text))
+            {
+                txtAdminPassword.Text = "Enter Password...";
+                txtAdminPassword.ForeColor = Color.Gray;
+                txtAdminPassword.UseSystemPasswordChar = false;
             }
         }
     }
