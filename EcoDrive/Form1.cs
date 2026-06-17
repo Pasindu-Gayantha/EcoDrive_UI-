@@ -50,7 +50,57 @@ namespace EcoDrive
 
         private void btnSubmitAndNext_Click(object sender, EventArgs e)
         {
-           
+            string query = "INSERT INTO CustomersAndVehicles (NIC, CustomerName, Phone, VehicleNo, VehicleType, EngineCC, FuelType) " +
+                            "VALUES (@NIC, @Name, @Phone, @VehicleNo, @VehicleType, @EngineCC, @FuelType)";
+
+            if (string.IsNullOrEmpty(txtNIC.Text) || string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtVehicleNo.Text))
+            {
+                MessageBox.Show("Please fill all the required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NIC", txtNIC.Text.Trim());
+                    command.Parameters.AddWithValue("@Name", txtCustomerName.Text.Trim());
+                    command.Parameters.AddWithValue("@Phone", txtPhone.Text.Trim());
+                    command.Parameters.AddWithValue("@VehicleNo", txtVehicleNo.Text.Trim());
+                    command.Parameters.AddWithValue("@VehicleType", cmbVehicleType.SelectedItem?.ToString() ?? "");
+                    command.Parameters.AddWithValue("@EngineCC", int.Parse(txtEngineCC.Text.Trim()));
+                    command.Parameters.AddWithValue("@FuelType", cmbFuelType.SelectedItem?.ToString() ?? "");
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Customer & Vehicle Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Capture values for the next step summary strip (Step 3 UX)
+                        currentNIC = txtNIC.Text.Trim();
+                        currentCustomerName = txtCustomerName.Text.Trim();
+                        currentVehicleNo = txtVehicleNo.Text.Trim();
+                        currentVehicleType = cmbVehicleType.SelectedItem?.ToString() ?? "";
+
+                        // Bind labels in Booking Tab Summary Strip dynamically
+                        lblBookSummaryNIC.Text = $"Customer NIC: {currentNIC}";
+                        lblBookSummaryName.Text = $"Name: {currentCustomerName}";
+                        lblBookSummaryVehicle.Text = $"Vehicle: {currentVehicleNo}";
+                        lblBookSummaryType.Text = $"Type: {currentVehicleType}";
+
+                        // Redirect smoothly
+                        tabControlPages.Selecting -= tabControlPages_Selecting;
+                        tabControlPages.SelectedTab = tabBooking;
+                        tabControlPages.Selecting += tabControlPages_Selecting;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error while saving data: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void btnBookSlot_Click(object sender, EventArgs e)
