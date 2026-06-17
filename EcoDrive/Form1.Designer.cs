@@ -1065,12 +1065,13 @@
             // 
             this.button1.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(675, 483);
+            this.button1.Location = new System.Drawing.Point(702, 478);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 32);
+            this.button1.Size = new System.Drawing.Size(134, 33);
             this.button1.TabIndex = 135;
             this.button1.Text = "Save your receipt";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 

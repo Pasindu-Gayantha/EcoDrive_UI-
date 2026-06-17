@@ -176,7 +176,57 @@ namespace EcoDrive
 
         private void btnPayAndPrint_Click(object sender, EventArgs e)
         {
-           
+            if (cmbPaymentMethod.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a Payment Method (Cash/Card)!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string method = cmbPaymentMethod.SelectedItem.ToString();
+            string refNumber = "REF" + DateTime.Now.ToString("yyyyMMdd") + currentBookingId.ToString("D4");
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string updateQuery = "UPDATE Bookings SET Status = 'Paid', ReferenceNo = @RefNo WHERE BookingId = @BookingId";
+
+                    using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@BookingId", currentBookingId);
+                        command.Parameters.AddWithValue("@RefNo", refNumber);
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Prepares preview block layout exactly mirroring step 4 panel specifications
+                    rtxtReceipt.Clear();
+                    rtxtReceipt.AppendText("=========================================\n");
+                    rtxtReceipt.AppendText("         ECODRIVE EMISSION CENTER        \n");
+                    rtxtReceipt.AppendText("             OFFICIAL RECEIPT            \n");
+                    rtxtReceipt.AppendText("=========================================\n\n");
+                    rtxtReceipt.AppendText($" Date/Time   : {DateTime.Now.ToString()}\n");
+                    rtxtReceipt.AppendText($" Reference No: {refNumber}\n");
+                    rtxtReceipt.AppendText($" Customer NIC: {currentNIC}\n");
+                    rtxtReceipt.AppendText($" Vehicle No  : {currentVehicleNo}\n");
+                    rtxtReceipt.AppendText($" Vehicle Type: {currentVehicleType}\n");
+                    rtxtReceipt.AppendText($" Allocated    : {lblSummarySlot.Text}\n");
+                    rtxtReceipt.AppendText($" Payment via : {method}\n");
+                    rtxtReceipt.AppendText("-----------------------------------------\n");
+                    rtxtReceipt.AppendText($" TOTAL PAID  : {lblSummaryAmount.Text}\n");
+                    rtxtReceipt.AppendText("-----------------------------------------\n\n");
+                    rtxtReceipt.AppendText("   Please present this receipt and your   \n");
+                    rtxtReceipt.AppendText("   original NIC at the testing counter.  \n");
+                    rtxtReceipt.AppendText("=========================================\n");
+
+                    MessageBox.Show("Payment Successful! Booking Status updated to Completed/Paid.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateDashboardChart();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating payment: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
@@ -434,12 +484,17 @@ namespace EcoDrive
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            UpdateDashboard();
+            dtpBookingDate.Value = DateTime.Today;
+            UpdateDashboardChart();
         }
 
         private void dtpBookingDate_ValueChanged(object sender, EventArgs e)
         {
-           
+            if (dtpBookingDate.Value.Date != DateTime.Today)
+            {
+                MessageBox.Show("Direct booking is restricted to TODAY only! For future reservations, please contact our helpline.", "Date Restriction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpBookingDate.Value = DateTime.Today;
+            }
         }
 
         private void btnDownloadReceipt_Click_1(object sender, EventArgs e)
@@ -449,7 +504,32 @@ namespace EcoDrive
 
         private void cmbTimeSlots_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(rtxtReceipt.Text))
+            {
+                MessageBox.Show("No receipt generated yet to download!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Text file|*.txt", ValidateNames = true })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        System.IO.File.WriteAllText(sfd.FileName, rtxtReceipt.Text, Encoding.UTF8);
+                        MessageBox.Show("Receipt successfully downloaded to your computer!", "Download Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving receipt file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
