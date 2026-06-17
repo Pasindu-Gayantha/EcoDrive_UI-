@@ -598,7 +598,7 @@ namespace EcoDrive
             }
         }
 
-        private void loadOccupiedSlots()
+        private void loadOccupiedSlots() //loads count of fully occupied slots (42 bookings per slot) and updates the dashboard label accordingly
         {
             string query = @"
                 SELECT COUNT(*) 

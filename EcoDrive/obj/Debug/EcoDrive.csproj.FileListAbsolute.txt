@@ -40,3 +40,11 @@ F:/Projects/VAP Group project/project files/EcoDrive_UI-/EcoDrive/obj/Debug/EcoD
 F:/Projects/VAP Group project/project files/EcoDrive_UI-/EcoDrive/obj/Debug/EcoDrive.pdb
 /home/runner/work/EcoDrive_UI-/EcoDrive_UI-/EcoDrive/obj/Debug/EcoDrive.exe
 /home/runner/work/EcoDrive_UI-/EcoDrive_UI-/EcoDrive/obj/Debug/EcoDrive.pdb
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.AdminDashboardForm.resources
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.Form1.resources
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.Properties.Resources.resources
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.exe
+C:\Users\USER\source\repos\EcoDrive_UI-\EcoDrive\obj\Debug\EcoDrive.pdb
